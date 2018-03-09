@@ -1567,13 +1567,17 @@ erpnext.pos.PointOfSale = erpnext.taxes_and_totals.extend({
 	},
 
 	print_document: function (html) {
-		var w = window.open();
-		w.document.write(html);
-		w.document.close();
-		setTimeout(function () {
-			w.print();
-			w.close();
-		}, 1000)
+		if (typeof Android === 'object') {
+			Android.pos_print(html);
+		} else {
+			var w = window.open();
+			w.document.write(html);
+			w.document.close();
+			setTimeout(function () {
+				w.print();
+				w.close();
+			}, 1000);
+		}
 	},
 
 	submit_invoice: function () {
