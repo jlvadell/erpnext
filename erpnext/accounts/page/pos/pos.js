@@ -1573,7 +1573,7 @@ erpnext.pos.PointOfSale = erpnext.taxes_and_totals.extend({
 		setTimeout(function () {
 			w.print();
 			w.close();
-		}, 1000);
+		}, 1000)
 	},
 
 	submit_invoice: function () {
